@@ -41,9 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#envivorement
-/src/shared/environments/environments.ts
-
 #Angular
 .angular
 .nx

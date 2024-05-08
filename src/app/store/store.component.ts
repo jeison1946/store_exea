@@ -25,10 +25,10 @@ export class StoreComponent implements OnInit {
 
   getStore() {
     this.pointOfSale = this.route.snapshot.paramMap.get('id') ?? '';
-    /* this.storeService.getStore(this.pointOfSale).subscribe((response: any ) => {
+    this.storeService.getStore(this.pointOfSale).subscribe((response: any ) => {
       if(response.code == 200) {
         console.log(response);
       }
-    }) */
+    })
   }
 }
