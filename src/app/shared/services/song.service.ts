@@ -8,6 +8,7 @@ import { environment } from '@media/environments';
 export class SongService {
 
   private urlBase = environment.apiUrl;
+  private urlNode = environment.apiNode;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -19,5 +20,10 @@ export class SongService {
     });
     const url = `${this.urlBase}/song`;
     return this.httpClient.get(url, { params: httpParams});
+  }
+
+  getLastSong(pos: any) {
+    const url = `${this.urlNode}/rules/logs?point_of_sale=${pos}&limit=1`;
+    return this.httpClient.get(url);
   }
 }

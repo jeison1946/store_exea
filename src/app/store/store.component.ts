@@ -29,6 +29,8 @@ export class StoreComponent implements OnInit {
 
   listOptions: any[] = [];
 
+  currentSong: any;
+
   constructor(
     private route: ActivatedRoute,
     public storeService: StoreService,
@@ -50,13 +52,14 @@ export class StoreComponent implements OnInit {
           if(responseSong.code == 200) {
             this.listOptions = responseSong.payload;
           }
-        },
-        () => {})
+        },() => {})
+        this.songService.getLastSong(this.dataInfo.pos).subscribe((responseLog: any ) => {
+          if(responseLog.code == 200) {
+            this.currentSong = responseLog.response;
+          }
+        },() => {})
       }
-    },
-    () => {
-
-    })
+    },() => {})
   }
 
   updateDateList(event: any) {
