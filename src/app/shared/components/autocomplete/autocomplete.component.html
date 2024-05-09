@@ -1,12 +1,12 @@
-<form class="example-form">
-  <input type="text"
-         placeholder="{{ label }}"
-         [formControl]="control"
-         [matAutocomplete]="auto"
-         class="example-input">
-  <mat-autocomplete #auto="matAutocomplete">
-    @for (street of filteredStreets | async; track street) {
-      <mat-option [value]="street">{{street}}</mat-option>
-    }
-  </mat-autocomplete>
+<form class="form-search" autocomplete="off">
+  <input
+    type="text"
+    placeholder="Busca canciones, albumes o artistas"
+    matInput
+    id="inputext"
+    (keyup)="changeInput($event)"
+  >
+  <div class="spinner-border spinner-border-sm" role="status">
+    <span class="visually-hidden"></span>
+  </div>
 </form>

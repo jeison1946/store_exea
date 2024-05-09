@@ -2,5 +2,15 @@
 
   <app-autocomplete
   label="Busque canciones o artistas"
+  (searchEvent)="updateDateList($event)"
   ></app-autocomplete>
+  <mat-selection-list #shoes [multiple]="false">
+    @for (item of listOptions; track item) {
+      <mat-list-option [value]="item.id" (click)="addResquestLog()">
+        <p>{{ item.title }}</p>
+        <p>{{ item.artist }}</p>
+      </mat-list-option>
+    }
+  </mat-selection-list>
+
 </div>
