@@ -1,0 +1,23 @@
+<app-autocomplete
+label="{{ label }}"
+class="first-item"
+(searchEvent)="searchEvent($event)"
+>
+</app-autocomplete>
+<p *ngIf="messageText">{{ messageText }}</p>
+<ng-content *ngIf="!messageText"></ng-content>
+<mat-selection-list
+[multiple]="false"
+class="select-list"
+>
+  @for (item of listOptions; track item) {
+    <mat-list-option
+    [value]="item.id"
+    class="list"
+    (click)="eventClickOptions(item)"
+    >
+      <p>{{ item.title }}</p>
+      <p>{{ item.artist }}</p>
+    </mat-list-option>
+  }
+</mat-selection-list>

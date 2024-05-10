@@ -9,11 +9,14 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "@media/environments": [
+      "@exeaenvironments": [
         "src/app/shared/environments/environments"
       ],
-      "@media/*": [
+      "@exeacomponents/*": [
         "src/app/shared/components/*"
+      ],
+      "@exeaservices/*": [
+        "src/app/shared/services/*"
       ]
     },
     "noFallthroughCasesInSwitch": true,

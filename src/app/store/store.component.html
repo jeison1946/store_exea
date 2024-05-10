@@ -1,24 +1,43 @@
-<div class="store-request">
-  <app-autocomplete
-  label="Busque canciones o artistas"
-  (searchEvent)="updateDateList($event)"
-  class="first-item"
-  ></app-autocomplete>
-  <mat-selection-list
-  [multiple]="false"
-  class="select-list"
-  >
-    @for (item of listOptions; track item) {
-      <mat-list-option
-      [value]="item.id"
-      (click)="addResquestLog()"
-      class="list"
+<div class="store-request" *ngIf="dataInfo">
+  <mat-tab-group>
+    <mat-tab label="Canciones favoritas">
+      <ng-template matTabContent>
+        <app-list-items-search label="Busca canciones o artistas" type="music" pos="{{ dataInfo.pos }}">
+          <p>Nuestra selección para ti</p>
+        </app-list-items-search>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Géneros el Corral">
+      <ng-template matTabContent>
+        <app-list-items-search label="Busca Géneros" type="gender" pos="{{ dataInfo.pos }}">
+          <p>Nuestro menú de géneros</p>
+        </app-list-items-search>
+      </ng-template>
+      <!-- <app-autocomplete
+      label="Busca Géneros"
+      (searchEvent)="updateDateList($event)"
+      class="first-item"
+      ></app-autocomplete>
+      <p>Nuestro menú de géneros</p>
+      <mat-selection-list
+      [multiple]="false"
+      class="select-list"
       >
-        <p>{{ item.title }}</p>
-        <p>{{ item.artist }}</p>
-      </mat-list-option>
-    }
-  </mat-selection-list>
+        @for (item of listOptions; track item) {
+          <mat-list-option
+          [value]="item.id"
+          (click)="addResquestLog()"
+          class="list"
+          >
+            <p>{{ item.title }}</p>
+            <p>{{ item.artist }}</p>
+          </mat-list-option>
+        }
+      </mat-selection-list> -->
+    </mat-tab>
+  </mat-tab-group>
+
+
 
   <div class="current-song" *ngIf="currentSong">
     <p>Ahora suena</p>
