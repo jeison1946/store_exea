@@ -35,4 +35,16 @@ export class SongService {
     const url = `${this.urlNode}/rules/logs?point_of_sale=${pos}&limit=1`;
     return this.httpClient.get(url);
   }
+
+  getSongRequest(pos: string) {
+    const url = `${this.urlNode}/song-request?pos=${pos}`;
+    return this.httpClient.get(url);
+  }
+
+  createdRequest(data: any, pos: string) {
+    data.file_size = '0';
+    data.pos = pos;
+    const url = `${this.urlNode}/song-request`;
+    return this.httpClient.post(url, data);
+  }
 }

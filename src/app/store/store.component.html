@@ -1,4 +1,16 @@
 <div class="store-request" *ngIf="dataInfo">
+  <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
+  <ng-template *ngIf="component === 2" [ngTemplateOutlet]="history"></ng-template>
+  <div class="current-song" *ngIf="currentSong">
+    <p>Ahora suena</p>
+    <p>{{ currentSong.title }}</p>
+    <p>{{ currentSong.author }}</p>
+  </div>
+</div>
+
+
+
+<ng-template #reguest>
   <mat-tab-group>
     <mat-tab label="Canciones favoritas">
       <ng-template matTabContent>
@@ -13,37 +25,26 @@
           <p>Nuestro menú de géneros</p>
         </app-list-items-search>
       </ng-template>
-      <!-- <app-autocomplete
-      label="Busca Géneros"
-      (searchEvent)="updateDateList($event)"
-      class="first-item"
-      ></app-autocomplete>
-      <p>Nuestro menú de géneros</p>
-      <mat-selection-list
-      [multiple]="false"
-      class="select-list"
-      >
-        @for (item of listOptions; track item) {
-          <mat-list-option
-          [value]="item.id"
-          (click)="addResquestLog()"
-          class="list"
-          >
-            <p>{{ item.title }}</p>
-            <p>{{ item.artist }}</p>
-          </mat-list-option>
-        }
-      </mat-selection-list> -->
     </mat-tab>
   </mat-tab-group>
-
-
-
-  <div class="current-song" *ngIf="currentSong">
-    <p>Ahora suena</p>
-    <p>{{ currentSong.title }}</p>
-    <p>{{ currentSong.author }}</p>
-  </div>
-</div>
+  <button mat-stroked-button (click)="changeComponent(2)">En Cola</button>
+</ng-template>
+<ng-template #history>
+  <p>Lo que va sonar</p>
+  <mat-list role="list" class="select-list">
+    <mat-list-item
+    class="list"
+    *ngFor="let item of itemsRequestSons"
+    >
+    <div class="options">
+      <div>
+        <p>{{ item.title }}</p>
+        <p>{{ item.artist }}</p>
+      </div>
+    </div>
+  </mat-list-item>
+  </mat-list>
+  <button mat-stroked-button (click)="changeComponent(1)">Seguir programando</button>
+</ng-template>
 
 

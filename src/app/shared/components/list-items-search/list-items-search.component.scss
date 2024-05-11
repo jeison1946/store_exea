@@ -1,13 +1,10 @@
-
-
-
 .select-list {
-  padding: 0;
-  overflow-y: scroll;
-  max-height: 350px;
-  .list {
-    background-color: white;
-    margin: 10px 0;
-    padding: 0;
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gender {
+    text-align: center;
   }
 }

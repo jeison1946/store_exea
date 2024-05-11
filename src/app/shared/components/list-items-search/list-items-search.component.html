@@ -6,18 +6,19 @@ class="first-item"
 </app-autocomplete>
 <p *ngIf="messageText">{{ messageText }}</p>
 <ng-content *ngIf="!messageText"></ng-content>
-<mat-selection-list
-[multiple]="false"
-class="select-list"
->
-  @for (item of listOptions; track item) {
-    <mat-list-option
-    [value]="item.id"
-    class="list"
-    (click)="eventClickOptions(item)"
-    >
-      <p>{{ item.title }}</p>
-      <p>{{ item.artist }}</p>
-    </mat-list-option>
-  }
-</mat-selection-list>
+<mat-list role="list" class="select-list" [ngClass]="listOptions.length >= 6 ? 'scooll-bar' : ''">
+  <mat-list-item
+  class="list"
+  [ngClass]="type"
+  *ngFor="let item of listOptions"
+  (click)="eventClickOptions(item)"
+  >
+    <div class="options">
+      <div>
+        <p>{{ item.title }}</p>
+        <p>{{ item.artist }}</p>
+      </div>
+      <mat-icon *ngIf="type !== 'gender'" aria-hidden="false" aria-label="Example home icon" fontIcon="playlist_add" color="red"></mat-icon>
+    </div>
+  </mat-list-item>
+</mat-list>

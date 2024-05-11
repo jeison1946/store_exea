@@ -11,3 +11,32 @@ body {
     margin: auto;
   }
 }
+
+
+.select-list {
+  padding: 0;
+
+  .list {
+    background-color: white;
+    margin: 10px 0;
+    padding: 0;
+    cursor: pointer !important;
+  }
+
+  &.scooll-bar{
+    overflow-y: scroll;
+    max-height: 350px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #414042;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #F5B21F; /* Color del thumb */
+  }
+
+}

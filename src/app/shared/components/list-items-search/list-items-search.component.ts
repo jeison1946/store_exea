@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { AutocompleteComponent } from '@exeacomponents/autocomplete/autocomplete.component';
 import { BasicModalComponent } from '@exeacomponents/modals/basic-modal/basic-modal.component';
+import {MatIconModule} from '@angular/material/icon';
 import { SongService } from '@exeaservices/song.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { SongService } from '@exeaservices/song.service';
     CommonModule,
     AutocompleteComponent,
     MatListModule,
+    MatIconModule,
   ],
   templateUrl: './list-items-search.component.html',
   styleUrl: './list-items-search.component.scss'
@@ -68,11 +70,27 @@ export class ListItemsSearchComponent implements OnInit{
         }
       },() => {})
     } else {
-      this.dialog.open(BasicModalComponent, {
-        data: {
-          message: 'Tu canción fue programada exitosamente.',
-        },
-      });
+      if (this.pos) {
+        this.songService.createdRequest(item, this.pos).subscribe((responseSong: any ) => {
+          if(responseSong.code == 200) {
+            this.dialog.open(BasicModalComponent, {
+              data: {
+                message: 'Tu canción fue programada exitosamente.',
+              },
+            });
+          }
+        },(error) => {
+          if (error.error.code == 500) {
+            this.dialog.open(BasicModalComponent, {
+              data: {
+                message: error.error.response.message,
+              },
+            });
+          }
+        })
+
+      }
+
     }
   }
 
