@@ -37,7 +37,7 @@ export class SongService {
   }
 
   getSongRequest(pos: string) {
-    const url = `${this.urlNode}/song-request?pos=${pos}`;
+    const url = `${this.urlNode}/song-request?pos=${pos}&finish=false`;
     return this.httpClient.get(url);
   }
 
