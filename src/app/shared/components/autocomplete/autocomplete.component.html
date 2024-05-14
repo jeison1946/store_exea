@@ -1,5 +1,6 @@
 <form class="form-search" autocomplete="off">
-  <input
+  <div class="form-type-text">
+    <input
     type="text"
     placeholder="{{label}}"
     matInput
@@ -7,6 +8,7 @@
     (keyup)="changeInput($event)"
     class="input type-text"
   >
+  </div>
   <div class="spinner-border spinner-border-sm" role="status">
     <span class="visually-hidden"></span>
   </div>

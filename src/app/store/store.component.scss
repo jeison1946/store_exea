@@ -4,3 +4,39 @@
   padding: 10px;
   margin-top: 10px;
 }
+
+.button-action{
+  margin: auto;
+  text-align: center;
+  padding-top: 1rem;
+  button {
+    background-color: #FFB100;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 10px 1rem;
+    border-radius: 1rem;
+    color: #450013;
+  }
+
+}
+
+.current-song{
+  border-radius: 1rem;
+  padding: 1rem;
+
+  p {
+    margin: 0;
+
+    &.title {
+      margin-top: 8px;
+      font-size: 1rem;
+    }
+
+    &.author {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+  }
+}
+

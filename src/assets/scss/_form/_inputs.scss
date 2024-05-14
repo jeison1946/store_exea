@@ -1,8 +1,19 @@
-input {
-  &.type-text {
+.form-type-text {
+  width: 100%;
+  display: flex;
+  .type-text {
     width: 100%;
     padding: 0;
     margin: 0;
     border: none;
+    padding: 1rem 0 1rem 1rem;
+    border-radius: 2rem;
+
+    &:hover,
+    &:hover,
+    &:focus {
+      border: none;
+      outline: none;
+    }
   }
 }

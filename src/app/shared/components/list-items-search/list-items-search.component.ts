@@ -118,4 +118,14 @@ export class ListItemsSearchComponent implements OnInit{
       },() => {})
     }
   }
+
+  returnGender() {
+    this.type = 'gender';
+    this.messageText = 'Nuestro menú de géneros';
+    this.songService.getGender({ pos: this.pos }).subscribe((responseSong: any ) => {
+      if(responseSong.code == 200) {
+        this.listOptions = responseSong.payload;
+      }
+    },() => {})
+  }
 }

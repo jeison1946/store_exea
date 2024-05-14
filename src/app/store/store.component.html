@@ -2,32 +2,38 @@
   <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
   <ng-template *ngIf="component === 2" [ngTemplateOutlet]="history"></ng-template>
   <div class="current-song" *ngIf="currentSong">
-    <p>Ahora suena</p>
-    <p>{{ currentSong.title }}</p>
-    <p>{{ currentSong.author }}</p>
+    <p class="current-song-text">Ahora suena</p>
+    <p class="title">{{ currentSong.title }}</p>
+    <p class="author">{{ currentSong.author }}</p>
   </div>
 </div>
 
 
 
 <ng-template #reguest>
-  <mat-tab-group>
+  <mat-tab-group class="tab-container">
     <mat-tab label="Canciones favoritas">
       <ng-template matTabContent>
         <app-list-items-search label="Busca canciones o artistas" type="music" pos="{{ dataInfo.pos }}">
-          <p>Nuestra selección para ti</p>
+          <div class="title-container">
+            <h3>Nuestra selección para ti</h3>
+          </div>
         </app-list-items-search>
       </ng-template>
     </mat-tab>
     <mat-tab label="Géneros el Corral">
       <ng-template matTabContent>
         <app-list-items-search label="Busca Géneros" type="gender" pos="{{ dataInfo.pos }}">
-          <p>Nuestro menú de géneros</p>
+          <div class="title-container">
+            <h3>Nuestro menú de géneros</h3>
+          </div>
         </app-list-items-search>
       </ng-template>
     </mat-tab>
   </mat-tab-group>
-  <button mat-stroked-button (click)="changeComponent(2)">En Cola</button>
+  <div class="button-action">
+  <button  class="button-action" (click)="changeComponent(2)">En Cola</button>
+</div>
 </ng-template>
 <ng-template #history>
   <p>Lo que va sonar</p>
@@ -44,7 +50,10 @@
     </div>
   </mat-list-item>
   </mat-list>
-  <button mat-stroked-button (click)="changeComponent(1)">Seguir programando</button>
+  <div class="button-action">
+    <button (click)="changeComponent(1)" class="button-action">Seguir programando</button>
+  </div>
+
 </ng-template>
 
 

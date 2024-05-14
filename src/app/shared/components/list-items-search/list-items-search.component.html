@@ -4,7 +4,10 @@ class="first-item"
 (searchEvent)="searchEvent($event)"
 >
 </app-autocomplete>
-<p *ngIf="messageText">{{ messageText }}</p>
+<div class="title-container">
+  <mat-icon *ngIf="messageText && type === 'music'" fontIcon="arrow_back" class="icon-return" (click)="returnGender()"></mat-icon>
+  <h3 *ngIf="messageText">{{ messageText }}</h3>
+</div>
 <ng-content *ngIf="!messageText"></ng-content>
 <mat-list role="list" class="select-list" [ngClass]="listOptions.length >= 6 ? 'scooll-bar' : ''">
   <mat-list-item
@@ -14,9 +17,9 @@ class="first-item"
   (click)="eventClickOptions(item)"
   >
     <div class="options">
-      <div>
-        <p>{{ item.title }}</p>
-        <p>{{ item.artist }}</p>
+      <div class="text-content">
+        <p class="title">{{ item.title }}</p>
+        <p class="author">{{ item.artist }}</p>
       </div>
       <mat-icon *ngIf="type !== 'gender'" aria-hidden="false" aria-label="Example home icon" fontIcon="playlist_add" color="red"></mat-icon>
     </div>

@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { SongService } from '../shared/services/song.service';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatButtonModule} from '@angular/material/button';
 import {
   MatDialog,
 } from '@angular/material/dialog';
@@ -18,7 +17,6 @@ import { MatListModule } from '@angular/material/list';
     CommonModule,
     MatTabsModule,
     ListItemsSearchComponent,
-    MatButtonModule,
     MatListModule
   ],
   templateUrl: './store.component.html',

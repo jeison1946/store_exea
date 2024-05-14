@@ -1,0 +1,32 @@
+.mat-mdc-tab-label-container {
+  background-color: #ffffff;
+  border-radius: 2rem;
+  margin: 0 1rem 1rem;
+
+  .mat-mdc-tab {
+    margin: 5px;
+    border-radius: 2rem;
+    height: auto !important;
+    padding: 10px;
+
+    &.mdc-tab-indicator--active {
+      background-color: #F5B21F;
+      border-bottom: none;
+
+      .mdc-tab__text-label {
+        font-weight: bold;
+        color: #450013;
+      }
+    }
+
+    .mdc-tab-indicator {
+      display: none;
+    }
+
+
+    .mdc-tab__text-label {
+      font-weight: bold;
+      color: #450013 !important;
+    }
+  }
+}
