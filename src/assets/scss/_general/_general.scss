@@ -4,10 +4,14 @@ body {
 .page-content {
   height: 100svh;
   background-color: #818C70;
+  background-image: url('../../../assets/images/background.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .content {
     padding: 1rem;
-    max-width: 400px;
+    max-width: 350px;
     margin: auto;
   }
 }
@@ -16,9 +20,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &.pt {
+      padding-top: 3rem;
+    }
   h3 {
     text-align: center;
     color: #ffffff;
+    margin: 10px 0;
   }
 
 }
@@ -38,6 +47,7 @@ body {
   &.scooll-bar{
     overflow-y: scroll;
     max-height: 300px;
+    padding: 0;
   }
 
   &::-webkit-scrollbar {
@@ -51,4 +61,32 @@ body {
     background: #F5B21F; /* Color del thumb */
   }
 
+}
+
+.select-list {
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gender {
+    text-align: center;
+  }
+
+  .text-content{
+    padding: 1rem;
+
+    p {
+      margin: 0;
+      color: #450013;
+
+      &.title {
+        font-size: 16px;
+      }
+
+      &.author {
+        font-size: 12px;
+      }
+    }
+  }
 }

@@ -1,32 +1,5 @@
-.select-list {
-  .options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .gender {
-    text-align: center;
-  }
-
-  .text-content{
-    padding: 1rem;
-
-    p {
-      margin: 0;
-      color: #450013;
-
-      &.title {
-        font-size: 16px;
-      }
-
-      &.author {
-        font-size: 12px;
-      }
-    }
-  }
-}
-
 .icon-return{
   margin-right: 10px;
   color: #F5B21F;
+  cursor: pointer;
 }

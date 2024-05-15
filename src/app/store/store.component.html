@@ -1,4 +1,8 @@
 <div class="store-request" *ngIf="dataInfo">
+  <div class="initial-info-content" *ngIf="component === 1">
+    <img src="../../assets/images/welcome.png" alt="Bienvenidos" class="image-store">
+    <p >¿Qué quieres escuchar hoy?</p>
+  </div>
   <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
   <ng-template *ngIf="component === 2" [ngTemplateOutlet]="history"></ng-template>
   <div class="current-song" *ngIf="currentSong">
@@ -36,16 +40,18 @@
 </div>
 </ng-template>
 <ng-template #history>
-  <p>Lo que va sonar</p>
+  <div class="title-container pt">
+    <h3>Lo que va sonar</h3>
+  </div>
   <mat-list role="list" class="select-list">
     <mat-list-item
     class="list"
     *ngFor="let item of itemsRequestSons"
     >
     <div class="options">
-      <div>
-        <p>{{ item.title }}</p>
-        <p>{{ item.artist }}</p>
+      <div class="text-content">
+        <p class="title">{{ item.title }}</p>
+        <p class="author">{{ item.artist }}</p>
       </div>
     </div>
   </mat-list-item>
