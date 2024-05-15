@@ -1,0 +1,26 @@
+.modal-detail {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+
+}
+
+.close-modal{
+  position: absolute;
+  margin: 1rem;
+  z-index: 2;
+}
+
+.modal-general{
+  background-color: #C8C0AF;
+  img {
+    width: 100%;
+  }
+}
