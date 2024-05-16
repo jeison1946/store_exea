@@ -3,6 +3,7 @@
   border-radius: 2rem;
   margin: 0 1rem 1rem;
 
+
   .mat-mdc-tab {
     margin: 5px;
     border-radius: 2rem;
@@ -29,4 +30,18 @@
       color: #450013 !important;
     }
   }
+}
+
+
+.mat-mdc-tab-header-pagination {
+  display: none !important;
+}
+
+.mdc-tab__text-label{
+  white-space: normal;
+}
+
+.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{
+  width: 45%;
+  padding: 10px 5px;
 }
