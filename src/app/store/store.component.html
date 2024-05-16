@@ -3,8 +3,10 @@
     <img src="../../assets/images/welcome.png" alt="Bienvenidos" class="image-store">
     <p >¿Qué quieres escuchar hoy?</p>
   </div>
-  <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
-  <ng-template *ngIf="component === 2" [ngTemplateOutlet]="history"></ng-template>
+  <div>
+    <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
+    <ng-template *ngIf="component === 2" [ngTemplateOutlet]="history"></ng-template>
+  </div>
   <div class="current-song" *ngIf="currentSong">
     <p class="current-song-text">Ahora suena</p>
     <p class="title">{{ currentSong.title }}</p>

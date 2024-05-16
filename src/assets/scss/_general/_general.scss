@@ -1,16 +1,16 @@
 body {
   margin: 0;
+  background-color: #818C70;
 }
 .page-content {
-  height: 100svh;
-  background-color: #818C70;
+  //min-height: 100svh;
   background-image: url('../../../assets/images/background.webp');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
   .content {
-    padding: 1rem;
+    padding: 0 1rem;
     max-width: 350px;
     margin: auto;
   }
