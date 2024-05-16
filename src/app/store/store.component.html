@@ -1,7 +1,7 @@
 <div class="store-request" *ngIf="dataInfo">
   <div class="initial-info-content" *ngIf="component === 1">
     <img src="../../assets/images/welcome.png" alt="Bienvenidos" class="image-store">
-    <p >¿Qué quieres escuchar hoy?</p>
+    <p class="text-pre-title">¿Qué quieres escuchar hoy?</p>
   </div>
   <div>
     <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
@@ -20,7 +20,12 @@
   <mat-tab-group class="tab-container">
     <mat-tab label="Canciones favoritas">
       <ng-template matTabContent>
-        <app-list-items-search label="Busca canciones o artistas" type="music" pos="{{ dataInfo.pos }}">
+        <app-list-items-search
+        label="Busca canciones o artistas"
+        type="music"
+        pos="{{ dataInfo.pos }}"
+        posstring="{{ pointOfSale }}"
+        >
           <div class="title-container">
             <h3>Nuestra selección para ti</h3>
           </div>

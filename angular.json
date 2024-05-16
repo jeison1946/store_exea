@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "store_exea": {
+    "store_exea_v2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/store_exea_v2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -32,12 +32,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -73,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "store_exea:build:production"
+              "buildTarget": "store_exea_v2:build:production"
             },
             "development": {
-              "buildTarget": "store_exea:build:development"
+              "buildTarget": "store_exea_v2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "store_exea:build"
+            "buildTarget": "store_exea_v2:build"
           }
         },
         "test": {
@@ -105,23 +100,11 @@
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
-          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "b9c67f07-0e8a-47ff-bb61-96a868e52271",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "analytics": false
   }
 }

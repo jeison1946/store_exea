@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .current-song {
   background-color: #450013;
@@ -28,18 +28,9 @@
 }
 
 .button-action{
-  margin: auto;
-  text-align: center;
-  padding-top: 1rem;
+  font-family: "SantEliaRough";
   button {
     background-color: #FFB100;
-    outline: none;
-    border: none;
-    font-size: 16px;
-    padding: 10px 1rem;
-    border-radius: 1rem;
-    color: #450013;
-    cursor: pointer;
   }
 
 }
@@ -65,5 +56,9 @@
       font-size: 10px;
     }
   }
+}
+
+.text-pre-title{
+  font-family: "SantEliaRough";
 }
 

@@ -9,7 +9,7 @@
   justify-content: center;
   text-align: center;
   padding: 1rem;
-
+  flex-direction: column;
 }
 
 .close-modal{
@@ -23,4 +23,18 @@
   img {
     width: 100%;
   }
+}
+
+.custom-styling{
+  color: #380514;
+  font-family: 'SantEliaRough';
+}
+
+.button-action{
+  margin: 0;
+  button {
+    background-color: #380514;
+    color: #ffffff;
+  }
+
 }

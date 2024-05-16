@@ -90,7 +90,29 @@ body {
 
       &.author {
         font-size: 12px;
+        font-family: "SantEliaRough";
       }
     }
   }
+}
+
+p, h1, h2, h3, span{
+  font-family: 'Helvetica';
+}
+
+.button-action{
+  margin: auto;
+  text-align: center;
+  padding-top: 1rem;
+  a,
+  button {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 10px 1rem;
+    border-radius: 1rem;
+    color: #450013;
+    cursor: pointer;
+  }
+
 }

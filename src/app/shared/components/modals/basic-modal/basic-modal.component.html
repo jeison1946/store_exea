@@ -1,6 +1,11 @@
 <div class="modal-general">
   <mat-icon fontIcon="close" class="close-modal" (click)="close()"></mat-icon>
   <img src="../../../../../assets/images/modal.png" alt="Modal">
-  <div class="modal-detail"><h2>{{ data.message }}</h2></div>
+  <div class="modal-detail"><h2 class="custom-styling">{{ data.message }}</h2>
+    <div *ngIf="textButton" class="button-action">
+      <button (click)="actionButton()">{{ textButton }}</button>
+    </div>
+  </div>
+
 </div>
 

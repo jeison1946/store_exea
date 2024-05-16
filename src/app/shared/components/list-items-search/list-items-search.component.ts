@@ -24,6 +24,8 @@ export class ListItemsSearchComponent implements OnInit{
   @Input() label: string = '';
   @Input() type: string = 'music';
   @Input() pos: string | false = false;
+  @Input() posstring: string | false = false;
+  @Input() typeClosed: string | false = false;
 
   messageText: string | false = false;
 
@@ -60,6 +62,7 @@ export class ListItemsSearchComponent implements OnInit{
   }
 
   eventClickOptions(item: any) {
+    this.openDialog('gender');
     if (this.type == 'gender') {
       this.messageText = item.title;
       this.songService.getSong({ pos: this.pos, gender: item.id }).subscribe((responseSong: any ) => {
@@ -73,25 +76,29 @@ export class ListItemsSearchComponent implements OnInit{
       if (this.pos) {
         this.songService.createdRequest(item, this.pos).subscribe((responseSong: any ) => {
           if(responseSong.code == 200) {
-            this.dialog.open(BasicModalComponent, {
-              data: {
-                message: 'Tu canción fue programada exitosamente.',
-              },
-            });
+            this.openDialog('general');
           }
         },(error) => {
           if (error.error.code == 500) {
-            this.dialog.open(BasicModalComponent, {
-              data: {
-                message: error.error.response.message,
-              },
-            });
+            this.openDialog('custom', error.error.response.message);
           }
         })
 
       }
 
     }
+  }
+
+  openDialog(type: string, message: string = '') {
+    let dialogRef = this.dialog.open(BasicModalComponent, {
+      data: {
+        message: type == 'custom' ? message : 'Tu canción fue programada exitosamente.',
+      },
+    });
+    let instance = dialogRef.componentInstance;
+    instance.textButton = type == 'custom' ? 'Continua programando' : 'Ver canciones programadas';
+    instance.pos = this.posstring;
+    instance.type = type;
   }
 
   searchEvent(event: any) {

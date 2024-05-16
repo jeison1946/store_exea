@@ -9,6 +9,8 @@ import {
 } from '@angular/material/dialog';
 import { ListItemsSearchComponent } from '@exeacomponents/list-items-search/list-items-search.component';
 import { MatListModule } from '@angular/material/list';
+import { Socket } from 'ngx-socket-io';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-store',
@@ -38,15 +40,14 @@ export class StoreComponent implements OnInit {
     private route: ActivatedRoute,
     public storeService: StoreService,
     public songService: SongService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private socket: Socket
     ){
   }
 
   ngOnInit(): void {
-
     this.getInitialData();
-
-
+    this.getCurrentSong();
   }
 
   getInitialData() {
@@ -75,6 +76,15 @@ export class StoreComponent implements OnInit {
       if(responseLog.code == 200) {
         this.itemsRequestSons = responseLog.response;
       }
+
     },() => {})
+  }
+
+  getCurrentSong() {
+    this.socket.on('currentSongListen', (data: any) => {
+      if (data.pos == this.dataInfo.pos) {
+        this.currentSong = data;
+      }
+    });
   }
 }
