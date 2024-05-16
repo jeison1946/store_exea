@@ -62,7 +62,6 @@ export class ListItemsSearchComponent implements OnInit{
   }
 
   eventClickOptions(item: any) {
-    this.openDialog('gender');
     if (this.type == 'gender') {
       this.messageText = item.title;
       this.songService.getSong({ pos: this.pos, gender: item.id }).subscribe((responseSong: any ) => {
