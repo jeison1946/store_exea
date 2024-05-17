@@ -87,4 +87,13 @@ export class StoreComponent implements OnInit {
       }
     });
   }
+
+  changePi(event: any) {
+    if (event == 'continue') {
+      this.component = 1;
+    } else {
+      this.component = 2;
+      this.getSongRequest();
+    }
+  }
 }

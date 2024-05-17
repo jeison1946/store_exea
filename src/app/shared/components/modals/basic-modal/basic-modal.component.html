@@ -1,9 +1,13 @@
 <div class="modal-general">
   <mat-icon fontIcon="close" class="close-modal" (click)="close()"></mat-icon>
-  <img src="../../../../../assets/images/modal.png" alt="Modal">
-  <div class="modal-detail"><h2 class="custom-styling">{{ data.message }}</h2>
-    <div *ngIf="textButton" class="button-action">
-      <button (click)="actionButton()">{{ textButton }}</button>
+  <img class="backgound" src="../../../../../assets/images/modal.png" alt="Modal">
+  <div class="modal-detail">
+    <img src="../../../../../assets/images/{{ data.image }}" alt="Modal">
+    <div *ngIf="type == 'see_more'" class="button-action">
+      <button (click)="actionButton('see_more')">Ver caciones programadas</button>
+    </div>
+    <div *ngIf="type == 'continue'" class="button-action">
+      <button (click)="actionButton('continue')">Continua programando</button>
     </div>
   </div>
 

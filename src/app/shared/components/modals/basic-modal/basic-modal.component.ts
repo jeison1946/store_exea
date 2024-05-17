@@ -20,19 +20,17 @@ export class BasicModalComponent {
     public dialog: MatDialog,
     private router: Router
   ) {}
-  @Input() textButton: false | string = false;
   @Input() pos: false | string = false;
   @Input() type: false | string = false;
+  @Output() clockTick = new EventEmitter<string>();
 
 
   close() {
     this.dialog.closeAll();
   }
 
-  actionButton() {
-    if (this.pos && this.type) {
-      this.router.navigate([`/store/${this.pos}?type=${this.type}`]);
-    }
-     this.dialog.closeAll();
+  actionButton(type: string) {
+    this.clockTick.emit(type);
+    this.dialog.closeAll();
   }
 }

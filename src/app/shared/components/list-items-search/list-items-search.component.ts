@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { AutocompleteComponent } from '@exeacomponents/autocomplete/autocomplete.component';
@@ -26,6 +26,7 @@ export class ListItemsSearchComponent implements OnInit{
   @Input() pos: string | false = false;
   @Input() posstring: string | false = false;
   @Input() typeClosed: string | false = false;
+  @Output() currentAction = new EventEmitter<string>();
 
   messageText: string | false = false;
 
@@ -61,7 +62,7 @@ export class ListItemsSearchComponent implements OnInit{
     }
   }
 
-  eventClickOptions(item: any) {
+  async eventClickOptions(item: any) {
     if (this.type == 'gender') {
       this.messageText = item.title;
       this.songService.getSong({ pos: this.pos, gender: item.id }).subscribe((responseSong: any ) => {
@@ -73,31 +74,57 @@ export class ListItemsSearchComponent implements OnInit{
       },() => {})
     } else {
       if (this.pos) {
-        this.songService.createdRequest(item, this.pos).subscribe((responseSong: any ) => {
-          if(responseSong.code == 200) {
-            this.openDialog('general');
+        const max = 5;
+        let flag = false;
+        let currentCount:any = parseInt(localStorage.getItem('currentCount') ?? '0');
+        const currentDate: any = new Date();
+        const lastDate: any = localStorage.getItem('currentTime')
+        if (currentCount >= max) {
+          const providedDate = new Date(lastDate);
+          const diffInMs = currentDate.getTime() - providedDate.getTime();
+          const diffInMinutes = diffInMs / (1000 * 60);
+          if (diffInMinutes > 30) {
+            flag = true;
+            localStorage.setItem('currentCount', '0')
           }
-        },(error) => {
-          if (error.error.code == 500) {
-            this.openDialog('custom', error.error.response.message);
-          }
-        })
+        } else {
+          flag = true;
+        }
 
+        if (flag) {
+          this.songService.createdRequest(item, this.pos).subscribe((responseSong: any ) => {
+            if(responseSong.code == 200) {
+              currentCount++;
+              localStorage.setItem('currentCount', currentCount)
+              if (currentCount == max) {
+                localStorage.setItem('currentTime', currentDate )
+              }
+              this.openDialog('message-success.png', 'see_more');
+            }
+          },(error) => {
+            if (error.error.code == 500) {
+              this.openDialog('message-exist.png', 'continue');
+            }
+          })
+        }
+        else {
+          this.openDialog('message-block.png');
+        }
       }
-
     }
   }
 
-  openDialog(type: string, message: string = '') {
+  openDialog(type: string, typeAction: string = '') {
     let dialogRef = this.dialog.open(BasicModalComponent, {
       data: {
-        message: type == 'custom' ? message : 'Tu canción fue programada exitosamente.',
+        image: type,
       },
     });
     let instance = dialogRef.componentInstance;
-    instance.textButton = type == 'custom' ? 'Continua programando' : 'Ver canciones programadas';
-    instance.pos = this.posstring;
-    instance.type = type;
+    instance.type = typeAction;
+    instance.clockTick.subscribe(data => {
+      this.currentAction.emit(data);
+    })
   }
 
   searchEvent(event: any) {
