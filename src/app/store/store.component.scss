@@ -14,7 +14,7 @@
 
 .initial-info-content{
   text-align: center;
-  width: 70%;
+  //width: 70%;
   padding: 1rem 0;
 
   p {
@@ -23,7 +23,8 @@
   }
 
   img {
-    width: 150px;
+    width: 100%;
+    //width: 150px;
   }
 }
 
@@ -42,6 +43,8 @@
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
+  display: flex;
+  align-items: center;
 
   p {
     margin: 0;
