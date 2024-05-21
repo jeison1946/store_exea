@@ -22,15 +22,20 @@
     color: #ffffff;
   }
 
-  img {
-    width: 100%;
-    //width: 150px;
+  &.end{
+    text-align: end;
+    margin-right: 12px;
+
+    img {
+      height: 50px;
+    }
   }
 }
 
 .button-action{
-  font-family: "SantEliaRough";
+  //font-family: "SantEliaRough";
   button {
+    font-weight: bold;
     background-color: #FFB100;
   }
 

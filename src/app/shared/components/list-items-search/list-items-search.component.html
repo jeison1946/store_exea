@@ -9,7 +9,7 @@ class="first-item"
   <h3 *ngIf="messageText">{{ messageText }}</h3>
 </div>
 <ng-content *ngIf="!messageText"></ng-content>
-<mat-list role="list" class="select-list" [ngClass]="listOptions.length >= 6 ? 'scooll-bar' : ''">
+<mat-list role="list" class="select-list" [ngClass]="listOptions.length >= 4 ? 'scooll-bar' : ''">
   <mat-list-item
   class="list"
   [ngClass]="type"

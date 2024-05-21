@@ -1,6 +1,6 @@
 <div class="store-request" *ngIf="dataInfo">
-  <div class="initial-info-content" *ngIf="component === 1">
-    <img src="../../assets/images/welcome.png" alt="Bienvenidos" class="image-store">
+  <div class="initial-info-content" [ngClass]="component === 1 ? 'home' : 'end'">
+    <img height="80" [src]="component === 1 ? '../../assets/images/welcome.png' : '../../assets/images/logo.png'" alt="Bienvenidos" class="image-store">
   </div>
   <div>
     <ng-template *ngIf="component === 1" [ngTemplateOutlet]="reguest"></ng-template>
@@ -12,7 +12,6 @@
       <p class="title">{{ currentSong.title }}</p>
       <p class="author">{{ currentSong.author }}</p>
     </div>
-
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" width="50" viewBox="0 0 129 88" fill="none">
         <path d="M5.78113 31.0981C5.78113 30.3911 5.50034 29.7124 5.00037 29.2124C4.50039 28.7124 3.8223 28.4321 3.11523 28.4321C2.40817 28.4321 1.72995 28.7124 1.22998 29.2124C0.730008 29.7124 0.449219 30.3911 0.449219 31.0981V56.1978C0.449219 56.9048 0.730008 57.5825 1.22998 58.0825C1.72995 58.5825 2.40817 58.8638 3.11523 58.8638C3.8223 58.8638 4.50039 58.5825 5.00037 58.0825C5.50034 57.5825 5.78113 56.9048 5.78113 56.1978V31.0981Z" fill="white"/>
