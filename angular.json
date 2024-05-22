@@ -72,7 +72,7 @@
               "fileReplacements": [
                 {
                   "replace": "./src/app/shared/environments/environments.ts",
-                  "with": "./src/app/shared/environments/environments.prod.ts"
+                  "with": "./src/app/shared/environments/environments.dev.ts"
                 }
               ],
               "outputHashing": "all"
