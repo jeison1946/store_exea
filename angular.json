@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "store_exea_v2": {
+    "store_exea": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,7 +35,7 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "prod": {
               "budgets": [
                 {
                   "type": "initial",
@@ -56,30 +56,54 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "dev": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "./src/app/shared/environments/environments.ts",
+                  "with": "./src/app/shared/environments/environments.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "local": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "prod"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "store_exea_v2:build:production"
+            "prod": {
+              "buildTarget": "store_exea:build:prod"
             },
-            "development": {
-              "buildTarget": "store_exea_v2:build:development"
+            "dev": {
+              "buildTarget": "store_exea:build:dev"
+            },
+            "local": {
+              "buildTarget": "store_exea:build:local"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "store_exea_v2:build"
+            "buildTarget": "store_exea:build"
           }
         },
         "test": {

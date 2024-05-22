@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'https://dev-epa.us.seedcloud.co/api/v1',
-  apiNode: 'https://api-dev-epa.us.seedcloud.co'
+  apiUrl: 'https://emisoras2.exeamedia.com/api/v1',
+  apiNode: 'https://logic-emisoras2.exeamedia.com'
 };
